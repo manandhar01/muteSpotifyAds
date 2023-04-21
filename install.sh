@@ -11,8 +11,8 @@ cp "./muteSpotifyAds.sh" "$scriptFile"
 echo "copied script file to $scriptFile"
 mkdir -p "$serviceDirectory"
 echo -e "[Unit]\nDescription=Mute Spotify Ads\nAfter=graphical-session.target\n" > "$serviceFile"
-echo -e "[Service]\nType=forking\nExecStartPre=/bin/bash -c \"$scriptFile & disown \$!\"\nExecStart=/bin/true\nRestart=always\n" >> "$serviceFile"
-echo -e "[Install]\nWantedBy=graphical-session.target" >> "$serviceFile"
+echo -e "[Service]\nType=simple\nExecStart=/bin/bash  $scriptFile\nRestart=always\n" >> "$serviceFile"
+echo -e "[Install]\nWantedBy=default.target" >> "$serviceFile"
 echo "created service file for user $username in $serviceFile"
 
 systemctl --user daemon-reload
