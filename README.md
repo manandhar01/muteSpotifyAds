@@ -7,7 +7,7 @@ A script written in **bash** to mute Spotify Ads on Linux.
 Ensure that the following tools are installed before installing the script.
 
 - playerctl
-- pactl
+- bc
 
 ### Note
 
